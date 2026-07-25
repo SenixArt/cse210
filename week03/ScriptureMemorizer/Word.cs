@@ -1,26 +1,41 @@
+using System;
+
 public class Word
 {
     private string _text;
     private bool _isHidden;
 
-    public Word(string text) 
-    { 
-        _text = text; 
-        _isHidden = false; 
+    public Word(string text)
+    {
+        _text = text;
+        _isHidden = false;
     }
 
-    public void Hide() 
-    { 
-        _isHidden = true; 
+    public void Hide()
+    {
+        _isHidden = true;
     }
 
-    public bool IsHidden() 
-    { 
-        return _isHidden; 
+    public void Show()
+    {
+        _isHidden = false;
     }
 
-    public string GetDisplayText() 
-    { 
-        return _isHidden ? new string('_', _text.Length) : _text; 
+    public bool IsHidden()
+    {
+        return _isHidden;
+    }
+
+    public string GetDisplayText()
+    {
+        if (_isHidden)
+        {
+            // Retorna guiones bajos del mismo tamaño que la palabra
+            return new string('_', _text.Length);
+        }
+        else
+        {
+            return _text;
+        }
     }
 }
