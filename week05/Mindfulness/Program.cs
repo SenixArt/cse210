@@ -4,10 +4,7 @@ class Program
 {
     static void Main(string[] args)
     {
-        // EXCEEDING REQUIREMENTS: Para ganar el 7% extra, puedes declarar aquí 
-        // una variable que cuente cuántas actividades se han completado en total
-        // y mostrarlo al salir del programa.
-        
+ 
         string choice = "";
 
         while (choice != "4")
@@ -23,18 +20,14 @@ class Program
 
             if (choice == "1")
             {
-                // Aquí instanciarás BreathingActivity y llamarás a su método Run()
-                // BreathingActivity activity = new BreathingActivity();
-                // activity.Run();
+                
             }
             else if (choice == "2")
             {
-                // Aquí instanciarás ReflectionActivity
-            }
+             }
             else if (choice == "3")
             {
-                // Aquí instanciarás ListingActivity
-            }
+             }
         }
     }
 }
