@@ -1,29 +1,26 @@
 using System;
+using System.Collections.Generic;
 
-public abstract class Activity
+class Program
 {
-    private string _date;
-    private int _minutes;
-
-    public Activity(string date, int minutes)
+    static void Main(string[] args)
     {
-        _date = date;
-        _minutes = minutes;
-    }
+        // Crear las actividades
+        Running runningActivity = new Running("03 Nov 2022", 30, 4.8);
+        Cycling cyclingActivity = new Cycling("04 Nov 2022", 45, 20.5);
+        Swimming swimmingActivity = new Swimming("05 Nov 2022", 25, 40);
 
-    public int GetMinutes()
-    {
-        return _minutes;
-    }
+        // Guardarlas en una lista de la clase base (Polimorfismo)
+        List<Activity> activities = new List<Activity>();
+        activities.Add(runningActivity);
+        activities.Add(cyclingActivity);
+        activities.Add(swimmingActivity);
 
-    // Métodos abstractos que cada deporte calculará a su manera
-    public abstract double GetDistance();
-    public abstract double GetSpeed();
-    public abstract double GetPace();
-
-    // Método general que arma el texto final usando polimorfismo
-    public string GetSummary()
-    {
-        return $"{_date} {this.GetType().Name} ({_minutes} min): Distance {GetDistance():0.0} km, Speed: {GetSpeed():0.0} kph, Pace: {GetPace():0.0} min per km";
+        // Imprimir el resumen de cada una
+        Console.WriteLine("Exercise Tracking Program:\n");
+        foreach (Activity act in activities)
+        {
+            Console.WriteLine(act.GetSummary());
+        }
     }
 }
